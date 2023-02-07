@@ -7,7 +7,8 @@ let speed = 3;
 
 function reset(){
   time = 30;
-
+  bugKills = 0;
+  gameloop = 0;
 }
 
 class Bug{
@@ -41,7 +42,7 @@ function setup() {
   createCanvas(ScreenWidth, ScreenHeight);
   frameRate(60);
   imageMode(CENTER);
-  rectMode(CENTER)
+  rectMode(CENTER);
 
 }
 let bugs = [];
@@ -62,19 +63,15 @@ function draw() {
       break;
     case 1:
       push()
+        textAlign(CENTER);
         textSize(32);
         text(`Your Score: ${bugKills}`, ScreenWidth/2, ScreenHeight/2);
       pop()
       push()
+        textAlign(CENTER);
         textSize(16);
         text(`Highest Score: ${localStorage.getItem('high-score')}`, ScreenWidth/2, ScreenHeight/2+32);
-      pop()
-      push()
-      let button = createButton('Play Again');
-      button.position(ScreenWidth/2, ScreenHeight/2+48);
-      button.mousePressed(reset);
-      pop()
-      
+      pop()      
       break;
   
     default:
@@ -100,6 +97,7 @@ let timer = setInterval(()=>{
     time = time-1;
   }else{
     gameloop = 1;
+    document.getElementById("buttonContainer").innerHTML = '<button>Play Again</button>'
     document.getElementById("timer").innerHTML = 0;
     console.log("finished")
     clearInterval(timer);
