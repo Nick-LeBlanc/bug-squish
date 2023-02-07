@@ -1,0 +1,19 @@
+html, body {
+  margin: 0;
+  padding: 0;
+}
+
+canvas {
+  display: block;
+}
+
+.timer{
+  margin-top: 10px;
+  position: absolute;
+  font-size: 3rem;
+}
+.squished{
+  position: absolute;
+  font-size: 1rem;
+  display: flex;
+}
