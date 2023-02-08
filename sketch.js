@@ -1,15 +1,19 @@
 let ScreenHeight = 540;
 let ScreenWidth = 960;
-let time = 30;
+let time = 29;
 let gameloop = 0;
 let bugKills = 0;
 let speed = 3;
 let spritesheet;
+let timer;
 
 function reset(){
-  time = 30;
+  time = 29;
   bugKills = 0;
   gameloop = 0;
+  timer = setInterval(gameTime, 1000);
+  document.getElementById("number").innerHTML = 30;
+  document.getElementById("button").innerHTML = '';
 }
 
 class Bug{
@@ -137,19 +141,22 @@ function mousePressed(){
 }
 
 
-let timer = setInterval(()=>{
+timer = setInterval(gameTime, 1000)
+
+function gameTime(){
   if(time > 0){
     document.getElementById("timer").innerHTML = time;
     time = time-1;
   }else{
+    clearInterval(timer);
     gameloop = 1;
     document.getElementById("timer").innerHTML = 0;
-    clearInterval(timer);
+    document.getElementById("button").innerHTML = '<button onClick="reset()">Play Again</button>';
     if( bugKills > localStorage.getItem('high-score')){
       localStorage.setItem('high-score', bugKills);
     }
   }
-}, 1000)
+}
 
 if(localStorage.getItem('high-score') ===null){
   localStorage.setItem('high-score', 0);

@@ -17,3 +17,7 @@ canvas {
   font-size: 1rem;
   display: flex;
 }
+.button{
+  position: absolute;
+  margin-top: 540px;
+}
