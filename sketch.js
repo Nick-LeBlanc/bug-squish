@@ -15,8 +15,9 @@ class Bug{
   constructor(){
     this.height = 40;
     this.width = 40;
-    this.x = Math.floor(Math.random() * (ScreenWidth - this.width/2));
-    this.y = Math.floor(Math.random() * (ScreenHeight - this.height/2));
+    Math.floor(Math.random() * (max - min) ) + min;
+    this.x = Math.floor(Math.random() * ((ScreenWidth - this.width/2) - this.width/2)) + this.width/2;
+    this.y = Math.floor(Math.random() * ((ScreenHeight - this.height/2) - this.height/2)) + this.height/2;
     this.velX = Math.random() < 0.5 ? -speed : speed;
     this.velY = Math.random() < 0.5 ? -speed : speed;
   }
@@ -97,9 +98,7 @@ let timer = setInterval(()=>{
     time = time-1;
   }else{
     gameloop = 1;
-    document.getElementById("buttonContainer").innerHTML = '<button>Play Again</button>'
     document.getElementById("timer").innerHTML = 0;
-    console.log("finished")
     clearInterval(timer);
     if( bugKills > localStorage.getItem('high-score')){
       localStorage.setItem('high-score', bugKills);
