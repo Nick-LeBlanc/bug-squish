@@ -63,11 +63,11 @@ class Bug{
       image(this.spritesheet,x,this.y,this.width,this.width,80,0,40,40);
     }
     else if(frame >=11 && frame <=15){
-      image(this.spritesheet,x,this.y,this.width,this.width,0,0,40,40);
+      image(this.spritesheet,x,this.y,this.width,this.width,120,0,40,40);
     }
     //image(this.spritesheet,this.x,this.y,this.width,this.width,0,0,40,40);
   }else{
-    image(this.spritesheet,x,this.y,this.width,this.width,120,0,40,40);
+    image(this.spritesheet,x,this.y,this.width,this.width,160,0,40,40);
   }
 }
   
