@@ -11,6 +11,7 @@ function reset(){
   time = 29;
   bugKills = 0;
   gameloop = 0;
+  speed = 3;
   timer = setInterval(gameTime, 1000);
   document.getElementById("number").innerHTML = 30;
   document.getElementById("button").innerHTML = '';
