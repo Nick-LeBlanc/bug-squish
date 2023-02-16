@@ -8,10 +8,13 @@ let spritesheet;
 let timer;
 
 function reset(){
+  speed = 3;
   time = 29;
   bugKills = 0;
   gameloop = 0;
-  speed = 3;
+  for (let i = 0; i < bugs.length; i++) {
+    bugs[i] = new Bug(spritesheet);
+  }
   timer = setInterval(gameTime, 1000);
   document.getElementById("number").innerHTML = 30;
   document.getElementById("button").innerHTML = '';
